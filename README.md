@@ -1,6 +1,6 @@
 <h1 align="center">Unsweet.js — Plain JavaScript for the entire web stack. No depedencies. Sugarless yet decadent. </h1>
 
-<h2 align="center" style="font-size: 90px;">🍰</h2>
+<p align="center" style="font-size: 90px;">🍰</p>
 <p align="center">
 Unsweet.js is a full-stack web application example which uses pure client-side and server-side JavaScript with zero front-end or back-end dependencies.
 </p>
