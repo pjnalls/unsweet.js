@@ -1,4 +1,4 @@
-<h1 align="center">Unsweet.js — Plain JavaScript for the entire web stack. No depedencies. Sugarless yet decadent. </h1>
+<h1 align="center">Unsweet.js — Plain JavaScript for the entire web stack. No dependencies. Sugarless yet decadent. </h1>
 
 <p align="center" style="font-size: 90px;">🍰</p>
 <p align="center">
