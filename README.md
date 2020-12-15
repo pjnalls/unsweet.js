@@ -11,4 +11,4 @@ Unsweet.js is a full-stack web application example which uses pure client-side a
 <hr>
 <br>
 
-**Like the idea of Unsweet.js? Give my repo a star⭐.**
+**Like Unsweet.js? Give my repo a star⭐.**
