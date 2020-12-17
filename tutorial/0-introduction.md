@@ -1,0 +1,1 @@
+An endocrinologist needs "a simple app to monitor patients' daily intake of sugar". The patients will need to provide logs of all the food they consume each day. The doctor emphasizes that they want to make food journaling for patients "as convenient, simple and accessible as possible".
