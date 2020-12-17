@@ -1,1 +1,11 @@
 <h1 align="center">Unsweet.js Tutorial: Sugar Journal App</h1>
+
+## Purpose
+I want to walkthrough solving a realistic problem from inception to resolution with a solution that is resourceful yet both elegant and efficient. That's the challenge of Unsweet.js.
+
+"Going *sugarless*" (or "developing apps with a *plain* set of tools") may seem negative by it's name, but I've found for myself that there are great benefits. It makes me appreciate front-end and back-end web frameworks and libraries as a developer. It shows me how *and* why any code that I write works — not just showing that *it does work*.
+
+Sure, we could just use a command-line interface to generate a boilerplate, kitchen-sink, cross-platform app that runs anywhere, copy this piece of code, copy that piece of code, and just say it's done; however, I think it's important to fully acquire deep understanding of how are code works — from language syntax to entire stacks.
+
+
+ 
