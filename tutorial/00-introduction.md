@@ -10,5 +10,6 @@ An endocrinologist needs "a simple app to monitor patients' daily intake of suga
 * an installation of Node.js
 
 ## Useful References
-* [Support Tables to Help with Cross-browser Compatiblity](https://caniuse.com/)
+* [Support Tables to help with cross-browser compatiblity](https://caniuse.com/)
 * [How to use Excel to make a wireframe](https://medium.com/@chlyang1992/how-to-use-excel-to-make-a-wireframe-ef6407163c91)
+* [How to create a low-fidelity prototype in Google Sheets](https://uxdesign.cc/how-to-create-a-low-fidelity-prototype-in-google-sheets-6e27b7020426)
