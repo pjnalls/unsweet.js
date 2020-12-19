@@ -11,3 +11,4 @@ An endocrinologist needs "a simple app to monitor patients' daily intake of suga
 
 ## Useful References
 * [Support Tables to Help with Cross-browser Compatiblity](https://caniuse.com/)
+* [How to use Excel to make a wireframe](https://medium.com/@chlyang1992/how-to-use-excel-to-make-a-wireframe-ef6407163c91)
