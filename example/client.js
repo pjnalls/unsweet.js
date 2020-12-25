@@ -37,6 +37,9 @@ function bootstrapWebClientApplication() {
 
   root.appendChild(container);
   container.appendChild(appHeader);
+  // Append horizontal rule.
+  container.appendChild(document.createElement('hr'));
+
 }
 
 bootstrapWebClientApplication();
