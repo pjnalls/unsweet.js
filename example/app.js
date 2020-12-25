@@ -29,7 +29,7 @@ function createAppHeader() {
   return appHeader;
 }
 
-function bootstrapWebClientApplication() {
+function bootstrapWebApplication() {
   var 
     root = document.getElementById('root'),
     container = createContainer(),
@@ -42,4 +42,4 @@ function bootstrapWebClientApplication() {
 
 }
 
-bootstrapWebClientApplication();
+bootstrapWebApplication();
