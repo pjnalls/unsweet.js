@@ -3,13 +3,15 @@ function createContainer() {
   var container = document.createElement('div');
   
   container.className = 'container';
+
   // Center.
   container.style.margin = '0 auto';
   // Create white-spacing on the right and left sides of the container.
   container.style.width = '80%';
+
   container.style.borderRadius = '5px';
   container.style.border = 'solid #cfcfcf 1.5px';
-  container.style.backgroundColor = '#f9f9f9';
+  container.style.backgroundColor = '#fff';
 
   return container;
 }
@@ -19,26 +21,52 @@ function createAppHeader() {
 
   appHeader.className ='app-header';
   appHeader.textContent = 'Sugar Journal';
-  // Center.
   appHeader.style.textAlign = 'center';
-  // Set default font family.
   appHeader.style.fontFamily = 'Arial, Helvetica, san-serif';
-  // Set color.
-  appHeader.style.color = '#581845';
+
+  // Set size of text relative to the viewport.
+  appHeader.style.fontSize = '5vw';
+
+  appHeader.style.fontWeight = 'lighter';
+
+  // Set text color.
+  appHeader.style.color = '#231878';
 
   return appHeader;
 }
 
+
 function bootstrapWebApplication() {
   var 
     root = document.getElementById('root'),
-    container = createContainer(),
-    appHeader = createAppHeader();
+    mainContainer = createContainer(),
+    appHeader = createAppHeader(),
+    dateSelectionContainer = createContainer(),
+    menuContainer = createContainer(),
+    resultsContainer = createContainer(),
+    mainButtonContainer = createContainer(); 
 
-  root.appendChild(container);
-  container.appendChild(appHeader);
+  root.appendChild(mainContainer);
+
+  // 
+  // Bootstrap container.
+  //
+
+  mainContainer.appendChild(appHeader);
+  // Append food menu container.
+  mainContainer.appendChild(dateSelectionContainer);
   // Append horizontal rule.
-  container.appendChild(document.createElement('hr'));
+  mainContainer.appendChild(document.createElement('hr'));
+  // Append food menu container.
+  mainContainer.appendChild(menuContainer);
+  // Append horizontal rule.
+  mainContainer.appendChild(document.createElement('hr'));
+  // Append daily results container.
+  mainContainer.appendChild(resultsContainer);
+  // Append main button container.
+  mainContainer.appendChild(mainButtonContainer);
+  // Append line break.
+  mainContainer.appendChild(document.createElement('br'));
 
 }
 
