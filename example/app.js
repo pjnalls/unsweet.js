@@ -35,8 +35,35 @@ function createAppHeader() {
   return appHeader;
 }
 
+/**
+ * .food-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: .5rem;
+}
+ */
+
+function createFoodMenuSelectionDropdown() {
+  var 
+    foodMenuContainer = document.createElement('div'),
+    foodMenuLabel = document.createElement('label'),
+    foodMenuDropdown = document.createElement('input');
+  
+  foodMenuContainer.className = 'food-menu';
+  
+  foodMenuLabel.htmlFor= 'food-selection';
+  foodMenuLabel.textContent = 'What food have you consumed today?'
+
+  foodMenuDropdown.list = 'food-menu';
+}
 
 function bootstrapWebApplication() {
+
+  //
+  // Bootstrap user interface.
+  //
+  
   var 
     root = document.getElementById('root'),
     mainContainer = createContainer(),
@@ -49,11 +76,11 @@ function bootstrapWebApplication() {
   root.appendChild(mainContainer);
 
   // 
-  // Bootstrap container.
+  // Bootstrap main container.
   //
 
   mainContainer.appendChild(appHeader);
-  // Append food menu container.
+  // Append date selection container for sub-header and buttons.
   mainContainer.appendChild(dateSelectionContainer);
   // Append horizontal rule.
   mainContainer.appendChild(document.createElement('hr'));
@@ -68,6 +95,9 @@ function bootstrapWebApplication() {
   // Append line break.
   mainContainer.appendChild(document.createElement('br'));
 
+  //
+  //  Bootstrap food menu container.
+  //
 }
 
 bootstrapWebApplication();
