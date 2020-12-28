@@ -48,14 +48,33 @@ function createFoodMenuSelectionDropdown() {
   var 
     foodMenuContainer = document.createElement('div'),
     foodMenuLabel = document.createElement('label'),
-    foodMenuDropdown = document.createElement('input');
+    foodMenuDropdown = document.createElement('input'),
+    foodDataListElement = document.createElement('datalist'),
+    // Create placeholder food data.
+    foodData = ['Tea', 'Ice Cream', 'Coffee', 'Cake', 'Pizza', 'Cheeseburger'];
   
   foodMenuContainer.className = 'food-menu';
   
   foodMenuLabel.htmlFor= 'food-selection';
   foodMenuLabel.textContent = 'What food have you consumed today?'
 
-  foodMenuDropdown.list = 'food-menu';
+  foodMenuDropdown.setAttribute('list', 'foods');
+  foodMenuDropdown.id = 'food-selection';
+  foodMenuDropdown.name = 'food-selection';
+
+  foodDataListElement.id ='foods';
+
+  foodData.forEach(food => {
+    const foodOption = document.createElement('option');
+    foodOption.value = food; 
+    foodDataListElement.appendChild(foodOption)
+  });
+
+  foodMenuContainer.appendChild(foodMenuLabel);
+  foodMenuContainer.appendChild(foodMenuDropdown);
+  foodMenuContainer.appendChild(foodDataListElement);
+
+  return foodMenuContainer;
 }
 
 function bootstrapWebApplication() {
@@ -84,8 +103,11 @@ function bootstrapWebApplication() {
   mainContainer.appendChild(dateSelectionContainer);
   // Append horizontal rule.
   mainContainer.appendChild(document.createElement('hr'));
+
   // Append food menu container.
+  menuContainer.appendChild(createFoodMenuSelectionDropdown());
   mainContainer.appendChild(menuContainer);
+  
   // Append horizontal rule.
   mainContainer.appendChild(document.createElement('hr'));
   // Append daily results container.
