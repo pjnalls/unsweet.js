@@ -10,6 +10,7 @@ Unsweet.js is a full-stack, Node.js web application example which uses pure, tes
 </p>
 <hr>
 <br>
+
 ## Purpose of "Going Sugarless"
 I felt the need to walkthrough solving a realistic problem from inception to resolution with a solution that is technically resourceful yet both elegant and efficient. This is what "sugarless-yet-decadent", Unsweet.js development means to me.
 
