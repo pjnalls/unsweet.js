@@ -8,10 +8,8 @@ function createContainer() {
   container.style.margin = '0 auto';
   // Create white-spacing on the right and left sides of the container.
   container.style.width = '80%';
-
-  container.style.borderRadius = '5px';
-  container.style.border = 'solid #cfcfcf 1.5px';
   container.style.backgroundColor = '#fff';
+  container.style.fontFamily = 'Arial, Helvetica, san-serif';
 
   return container;
 }
@@ -22,27 +20,14 @@ function createAppHeader() {
   appHeader.className ='app-header';
   appHeader.textContent = 'Sugar Journal';
   appHeader.style.textAlign = 'center';
-  appHeader.style.fontFamily = 'Arial, Helvetica, san-serif';
 
-  // Set size of text relative to the viewport.
-  appHeader.style.fontSize = '5vw';
-
-  appHeader.style.fontWeight = 'lighter';
+  appHeader.style.fontWeight = 'bold';
 
   // Set text color.
-  appHeader.style.color = '#231878';
+  appHeader.style.color = '#0b5394';
 
   return appHeader;
 }
-
-/**
- * .food-menu {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-    margin: .5rem;
-}
- */
 
 function createFoodMenuSelectionDropdown() {
   var 
@@ -54,13 +39,22 @@ function createFoodMenuSelectionDropdown() {
     foodData = ['Tea', 'Ice Cream', 'Coffee', 'Cake', 'Pizza', 'Cheeseburger'];
   
   foodMenuContainer.className = 'food-menu';
+
+  // Style food menu container.
+  foodMenuContainer.style.display = 'flex';
+  foodMenuContainer.style.justifyContent = 'space-between';
+  foodMenuContainer.style.width = '80%';
+  // Center.
+  foodMenuContainer.style.margin = '0 auto';
   
   foodMenuLabel.htmlFor= 'food-selection';
-  foodMenuLabel.textContent = 'What food have you consumed today?'
+  foodMenuLabel.textContent = 'What food have you eaten today?'
+  foodMenuLabel.style.fontWeight = 'bold';
 
   foodMenuDropdown.setAttribute('list', 'foods');
   foodMenuDropdown.id = 'food-selection';
   foodMenuDropdown.name = 'food-selection';
+  foodMenuDropdown.style.width = '50%';
 
   foodDataListElement.id ='foods';
 
@@ -97,6 +91,9 @@ function bootstrapWebApplication() {
   // 
   // Bootstrap main container.
   //
+  
+  mainContainer.style.borderRadius = '5px';
+  mainContainer.style.border = 'solid #cfcfcf 1.5px';
 
   mainContainer.appendChild(appHeader);
   // Append date selection container for sub-header and buttons.
@@ -116,10 +113,6 @@ function bootstrapWebApplication() {
   mainContainer.appendChild(mainButtonContainer);
   // Append line break.
   mainContainer.appendChild(document.createElement('br'));
-
-  //
-  //  Bootstrap food menu container.
-  //
 }
 
 bootstrapWebApplication();
