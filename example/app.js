@@ -33,8 +33,7 @@ function createFoodMenuSelectionDropdown() {
   var 
     foodMenuContainer = document.createElement('div'),
     foodMenuLabel = document.createElement('label'),
-    foodMenuDropdown = document.createElement('input'),
-    foodDataListElement = document.createElement('datalist'),
+    foodMenuDropdown = document.createElement('select'),
     // Create placeholder food data.
     foodData = ['Tea', 'Ice Cream', 'Coffee', 'Cake', 'Pizza', 'Cheeseburger'];
   
@@ -47,26 +46,23 @@ function createFoodMenuSelectionDropdown() {
   // Center.
   foodMenuContainer.style.margin = '0 auto';
   
-  foodMenuLabel.htmlFor= 'food-selection';
+  foodMenuLabel.htmlFor = 'food-selection';
   foodMenuLabel.textContent = 'What food have you eaten today?'
   foodMenuLabel.style.fontWeight = 'bold';
 
-  foodMenuDropdown.setAttribute('list', 'foods');
-  foodMenuDropdown.id = 'food-selection';
-  foodMenuDropdown.name = 'food-selection';
+  foodMenuDropdown.id = foodMenuLabel.htmlFor;
+  foodMenuDropdown.name = 'foods';
   foodMenuDropdown.style.width = '50%';
-
-  foodDataListElement.id ='foods';
 
   foodData.forEach(food => {
     const foodOption = document.createElement('option');
-    foodOption.value = food; 
-    foodDataListElement.appendChild(foodOption)
+    foodOption.value = food;
+    foodOption.textContent = food; 
+    foodMenuDropdown.appendChild(foodOption)
   });
 
   foodMenuContainer.appendChild(foodMenuLabel);
   foodMenuContainer.appendChild(foodMenuDropdown);
-  foodMenuContainer.appendChild(foodDataListElement);
 
   return foodMenuContainer;
 }
