@@ -29,6 +29,45 @@ function createAppHeader() {
   return appHeader;
 }
 
+function createDateSelectionInputs() {
+  var
+    dateSelectionContainer = createContainer(),
+    previousDateButton = document.createElement('button'),
+    nextDateButton = document.createElement('button'),
+    currentDateSelection = document.createElement('select'),
+    dateData = ['1/1/2021', '1/2/2021', '1/3/2021', '1/4/2021', '1/5/2021'];
+
+  previousDateButton.value = previousDateButton.textContent = `◀   ${dateData[2]}`;
+  previousDateButton.id = 'previous-date-btn';
+  nextDateButton.value = nextDateButton.textContent = `${dateData[dateData.length - 1]}   ▶`;
+  nextDateButton.id = 'next-date-btn';
+
+  currentDateSelection.style.fontWeight = 'bold';
+  currentDateSelection.style.border = '0px';
+
+  dateData.forEach(date => {
+    const dateOption = document.createElement('option');
+    dateOption.value = dateOption.textContent = date;
+    if (dateOption.value === dateData[3]) dateOption.selected = true;
+    currentDateSelection.appendChild(dateOption);
+  });
+
+  currentDateSelection.value = dateData[3];
+
+  // Style food menu container.
+  dateSelectionContainer.style.display = 'flex';
+  dateSelectionContainer.style.justifyContent = 'space-between';
+  dateSelectionContainer.style.width = '80%';
+  // Center.
+  dateSelectionContainer.style.margin = '0 auto';
+
+  dateSelectionContainer.appendChild(previousDateButton);
+  dateSelectionContainer.appendChild(currentDateSelection);
+  dateSelectionContainer.appendChild(nextDateButton);
+
+  return dateSelectionContainer;
+}
+
 function createFoodMenuSelectionDropdown() {
   var 
     foodMenuContainer = document.createElement('div'),
@@ -56,8 +95,7 @@ function createFoodMenuSelectionDropdown() {
 
   foodData.forEach(food => {
     const foodOption = document.createElement('option');
-    foodOption.value = food;
-    foodOption.textContent = food; 
+    foodOption.value = foodOption.textContent = food;
     foodMenuDropdown.appendChild(foodOption)
   });
 
@@ -77,7 +115,6 @@ function bootstrapWebApplication() {
     root = document.getElementById('root'),
     mainContainer = createContainer(),
     appHeader = createAppHeader(),
-    dateSelectionContainer = createContainer(),
     menuContainer = createContainer(),
     resultsContainer = createContainer(),
     mainButtonContainer = createContainer(); 
@@ -93,7 +130,7 @@ function bootstrapWebApplication() {
 
   mainContainer.appendChild(appHeader);
   // Append date selection container for sub-header and buttons.
-  mainContainer.appendChild(dateSelectionContainer);
+  mainContainer.appendChild(createDateSelectionInputs());
   // Append horizontal rule.
   mainContainer.appendChild(document.createElement('hr'));
 
