@@ -68,10 +68,14 @@ function createDateSelectionInputs() {
   return dateSelectionContainer;
 }
 
-function createFoodMenuSelectionDropdown() {
+// TODO: Use grid display and grid template areas to form
+// table for the food menu.
+function createFoodMenu() {
   var 
     foodMenuContainer = document.createElement('div'),
     foodMenuLabel = document.createElement('label'),
+    foodSugarLabel = document.createElement('label'),
+    sugarServingSizeLabel = document.createElement('label'),
     foodMenuDropdown = document.createElement('select'),
     // Create placeholder food data.
     foodData = ['Tea', 'Ice Cream', 'Coffee', 'Cake', 'Pizza', 'Cheeseburger'];
@@ -80,14 +84,24 @@ function createFoodMenuSelectionDropdown() {
 
   // Style food menu container.
   foodMenuContainer.style.display = 'flex';
+  foodMenuContainer.style.flexWrap = 'wrap';
   foodMenuContainer.style.justifyContent = 'space-between';
   foodMenuContainer.style.width = '80%';
   // Center.
   foodMenuContainer.style.margin = '0 auto';
   
+  // Set food menu label.
   foodMenuLabel.htmlFor = 'food-selection';
   foodMenuLabel.textContent = 'What food have you eaten today?'
   foodMenuLabel.style.fontWeight = 'bold';
+
+  // Set food sugar label.
+  foodSugarLabel.htmlFor = 'food-sugar-amount';
+  foodSugarLabel.textContent = 'Sugar (per serving)';
+  
+  // Set sugar serving size label.
+  sugarServingSizeLabel.htmlFor = 'sugar-serving-size';
+  sugarServingSizeLabel.textContent = 'Serving Size';
 
   foodMenuDropdown.id = foodMenuLabel.htmlFor;
   foodMenuDropdown.name = 'foods';
@@ -101,6 +115,10 @@ function createFoodMenuSelectionDropdown() {
 
   foodMenuContainer.appendChild(foodMenuLabel);
   foodMenuContainer.appendChild(foodMenuDropdown);
+  foodMenuContainer.appendChild(document.createElement('br'));
+  foodMenuContainer.appendChild(foodSugarLabel);
+  foodMenuContainer.appendChild(document.createElement('br'));
+  foodMenuContainer.appendChild(sugarServingSizeLabel);
 
   return foodMenuContainer;
 }
@@ -135,7 +153,7 @@ function bootstrapWebApplication() {
   mainContainer.appendChild(document.createElement('hr'));
 
   // Append food menu container.
-  menuContainer.appendChild(createFoodMenuSelectionDropdown());
+  menuContainer.appendChild(createFoodMenu());
   mainContainer.appendChild(menuContainer);
   
   // Append horizontal rule.
