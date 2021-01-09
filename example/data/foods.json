@@ -1,0 +1,74 @@
+[
+  {
+    "id" : "1",
+    "name" : "Whole Wheat Bread",
+    "icon" : "🍞",
+    "gramsOfSugar" : 2,
+    "unit" : "slice",
+    "gramsPerUnit" : 41
+  },
+  {
+    "id" : "2",
+    "name" : "Tea",
+    "icon" : "🍵",
+    "gramsOfSugar" : 0,
+    "unit" : "cup",
+    "gramsPerUnit" : 238
+  },
+  {
+    "id" : "3",
+    "name" : "Whole Tangerine",
+    "icon" : "🍊",
+    "gramsOfSugar" : 9,
+    "unit": "medium",
+    "gramsPerUnit": 88
+  },
+  {
+    "id" : "4",
+    "name" : "Honey",
+    "icon" : "🍯",
+    "gramsOfSugar" : 17,
+    "unit" : "tbsp",
+    "gramsPerUnit": 21
+  },
+  {
+    "id" : "5",
+    "name" : "Whole Egg",
+    "icon" : "🥚",
+    "gramsOfSugar" : 0.5,
+    "unit" : "large",
+    "gramsPerUnit": 50
+  },
+  {
+    "id" : "6",
+    "name" : "Whole Milk",
+    "icon" : "🥛",
+    "gramsOfSugar" : 12,
+    "unit" : "cup",
+    "gramsPerUnit": 244
+  },
+  {
+    "id" : "7",
+    "name" : "Fish",
+    "icon" : "🐟",
+    "gramsOfSugar" : null,
+    "unit": "fillet",
+    "gramsPerUnit": 198
+  },
+  {
+    "id" : "8",
+    "name" : "Steak",
+    "icon" : "🥩",
+    "gramsOfSugar" : 0,
+    "unit" : "steak",
+    "gramsPerUnit" : 251
+  },
+  {
+    "id" : "9",
+    "name" : "Cheesecake",
+    "icon" : "🍰",
+    "gramsOfSugar" : 2,
+    "unit" : "piece",
+    "gramsPerUnit" : 125
+  }
+]
