@@ -2,7 +2,7 @@
 
 <p align="center">
 <img src="unsweet-tea.png" alt="unsweet-tea" width="180px" height="180px"/><br>
-Unsweet.js is a full-stack, Node.js web application example (<b>work-in-progress</b>) which uses pure, client-side and server-side JavaScript with zero front-end or back-end frameworks.
+Unsweet.js is a full-stack, Node.js web application example (<b>development-in-progress</b>) which uses pure, client-side and server-side JavaScript with zero front-end or back-end frameworks.
 </p>
 
 <hr>
