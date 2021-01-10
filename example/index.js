@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+exports.index = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,4 +10,4 @@
   <div id="root"></div>
   <script src='app.js'></script>
 </body>
-</html>
+</html>`;
