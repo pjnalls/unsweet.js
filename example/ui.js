@@ -77,15 +77,23 @@ function createFoodMenu() {
     foodSugarLabel = document.createElement('label'),
     sugarServingSizeLabel = document.createElement('label'),
     foodMenuDropdown = document.createElement('select'),
-    // Create placeholder food data.
-    foodData = ['Tea', 'Ice Cream', 'Coffee', 'Cake', 'Pizza', 'Cheeseburger'];
+    listener = function() {
+      JSON.parse(this.response).forEach(food => {
+        const foodOption = document.createElement('option');
+        foodOption.value = foodOption.textContent = `${food.icon} ${food.name}`;
+        foodMenuDropdown.appendChild(foodOption)
+      });
+    },
+    request = new XMLHttpRequest();
+  
+  request.addEventListener('load', listener);
+  request.open('GET', '/api/foods');
+  request.send();
   
   foodMenuContainer.className = 'food-menu';
 
   // Style food menu container.
-  foodMenuContainer.style.display = 'flex';
-  foodMenuContainer.style.flexWrap = 'wrap';
-  foodMenuContainer.style.justifyContent = 'space-between';
+  foodMenuContainer.style.display = 'grid';
   foodMenuContainer.style.width = '80%';
   // Center.
   foodMenuContainer.style.margin = '0 auto';
@@ -106,12 +114,6 @@ function createFoodMenu() {
   foodMenuDropdown.id = foodMenuLabel.htmlFor;
   foodMenuDropdown.name = 'foods';
   foodMenuDropdown.style.width = '50%';
-
-  foodData.forEach(food => {
-    const foodOption = document.createElement('option');
-    foodOption.value = foodOption.textContent = food;
-    foodMenuDropdown.appendChild(foodOption)
-  });
 
   foodMenuContainer.appendChild(foodMenuLabel);
   foodMenuContainer.appendChild(foodMenuDropdown);
