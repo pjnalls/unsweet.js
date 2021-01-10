@@ -1,13 +1,15 @@
 const http = require('http');
-const foods = require('./data/foods');
+const { bootstrapApp } = require('./controllers/bootstrap-controller');
+const { getAllFoods } = require('./controllers/food-controller');
 
 // TODO: Modularize web APIs.
 const server = http.createServer((req, res) => {
+  bootstrapApp();
+
   if (req.url === '/api/foods' && req.method === 'GET') {
-    res.writeHead(200, { 'Content-TYpe' : 'application/json' });
-    res.end(JSON.stringify(foods));
+    getAllFoods();
   } else {
-    res.writeHead(404, { 'Content-TYpe' : 'application/json' });
+    res.writeHead(404, { 'Content-Type' : 'application/json' });
     res.end(JSON.stringify({ message: 'Route Not Found'}));
   }
 });
