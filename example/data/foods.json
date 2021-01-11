@@ -65,9 +65,9 @@
   },
   {
     "id" : "9",
-    "name" : "Cheesecake",
+    "name" : "Shortcake",
     "icon" : "🍰",
-    "gramsOfSugar" : 27,
+    "gramsOfSugar" : 23,
     "unit" : "piece",
     "gramsPerUnit" : 125
   }
