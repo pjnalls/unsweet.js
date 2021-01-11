@@ -51,7 +51,7 @@
     "id" : "7",
     "name" : "Fish",
     "icon" : "🐟",
-    "gramsOfSugar" : null,
+    "gramsOfSugar" : 0,
     "unit": "fillet",
     "gramsPerUnit": 198
   },
@@ -67,7 +67,7 @@
     "id" : "9",
     "name" : "Cheesecake",
     "icon" : "🍰",
-    "gramsOfSugar" : 2,
+    "gramsOfSugar" : 27,
     "unit" : "piece",
     "gramsPerUnit" : 125
   }
