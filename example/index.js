@@ -9,6 +9,6 @@ exports.index = `<!DOCTYPE html>
 </head>
 <body>
   <div id="root"></div>
-  <script>${fs.readFileSync('./ui.js')}</script>
+  <script>${fs.readFileSync('./app.js')}</script>
 </body>
 </html>`;
