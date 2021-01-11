@@ -22,7 +22,7 @@ the ***food name*** (``string``) and ***grams of sugar*** (``number``) per servi
 * ***DATE_OF_FIRST_ENTRY*** <= ***date of journal entry*** <= ***today's date***
 * 0 <= ***all food consumed***```.length``` < 1000
 * 0 <= ***food consumed***```.```***grams of sugar*** < 200
-* 0 < ***serving size*** < 100
+* 0 <= ***serving size*** < 100
 * 0 <= ***total grams of sugar consumed*** < 1000
 
 ## Useful References
