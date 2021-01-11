@@ -81,6 +81,7 @@ function createFoodMenu() {
     servingSizeLabel = document.createElement('label'),
     servingSizeInput = document.createElement('input'),
     foodMenuDropdown = document.createElement('select'),
+    dropdownContainer = document.createElement('div'),
     listener = function() {
       JSON.parse(this.response).forEach(food => {
         const foodOption = document.createElement('option');
@@ -94,6 +95,10 @@ function createFoodMenu() {
       // Set sugar serving size label.
       servingSizeLabel.htmlFor = 'sugar-serving-size';
       servingSizeLabel.textContent = `Serving Size (${foodMenuDropdown.value.split(',')[3]})`;
+      servingSizeInput.type = 'number';
+      servingSizeInput.min = 0;
+      servingSizeInput.max = 99;
+      // Set default value.
       servingSizeInput.value = 1;
     },
     request = new XMLHttpRequest();
@@ -121,28 +126,43 @@ function createFoodMenu() {
 
   foodMenuDropdown.id = foodMenuLabel.htmlFor;
   foodMenuDropdown.name = 'foods';
-  foodMenuDropdown.style.width = '50%';
 
-  // Set food sugar input.
   foodSugarInput.id = foodSugarLabel.htmlFor;
   foodSugarInput.disabled = true;
-  foodSugarInput.style.width = servingSizeInput.style.width = '50%';
-  foodSugarInput.style.float = servingSizeInput.style.float = 'right';
 
-  foodSugarContainer.style.display = servingSizeContainer.style.display = 'inline-block';
+  foodSugarInput.style.width = 
+  servingSizeInput.style.width = 
+  foodMenuDropdown.style.width = '50%';
+  foodSugarInput.style.float = 
+  servingSizeInput.style.float = 
+  foodMenuDropdown.style.float = 'right';
+  foodSugarInput.style.boxSizing = 
+  servingSizeInput.style.boxSizing = 
+  foodMenuDropdown.style.boxSizing = 'border-box';
+
+  foodSugarContainer.style.display = 
+  servingSizeContainer.style.display = 
+  dropdownContainer.style.display = 'inline-block';
+
+  
 
   foodSugarContainer.appendChild(foodSugarLabel);
   foodSugarContainer.appendChild(foodSugarInput);
   servingSizeContainer.appendChild(servingSizeLabel);
   servingSizeContainer.appendChild(servingSizeInput);
+  dropdownContainer.appendChild(foodMenuLabel);
+  dropdownContainer.appendChild(foodMenuDropdown);
 
   foodMenuDropdown.onchange = foodMenuDropdown.onload = function() { 
     foodSugarInput.value = parseInt(foodMenuDropdown.value.split(',')[2]); 
     servingSizeLabel.textContent = `Serving Size (${foodMenuDropdown.value.split(',')[3]})`;
+    servingSizeInput.value = 1;
   }
 
-  foodMenuContainer.appendChild(foodMenuLabel);
-  foodMenuContainer.appendChild(foodMenuDropdown);
+  // Set box-sizing for input and select elements for them to be the same width.
+  
+
+  foodMenuContainer.appendChild(dropdownContainer);
   foodMenuContainer.appendChild(document.createElement('br'));
   foodMenuContainer.appendChild(foodSugarContainer);
   foodMenuContainer.appendChild(document.createElement('br'));
