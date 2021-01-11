@@ -74,15 +74,27 @@ function createFoodMenu() {
   var 
     foodMenuContainer = document.createElement('div'),
     foodMenuLabel = document.createElement('label'),
+    foodSugarContainer = document.createElement('div'),
     foodSugarLabel = document.createElement('label'),
-    sugarServingSizeLabel = document.createElement('label'),
+    foodSugarInput = document.createElement('input'),
+    servingSizeContainer = document.createElement('div'),
+    servingSizeLabel = document.createElement('label'),
+    servingSizeInput = document.createElement('input'),
     foodMenuDropdown = document.createElement('select'),
     listener = function() {
       JSON.parse(this.response).forEach(food => {
         const foodOption = document.createElement('option');
-        foodOption.value = foodOption.textContent = `${food.icon} ${food.name}`;
-        foodMenuDropdown.appendChild(foodOption)
+        foodOption.id = food.id;
+        foodOption.value = `${food.icon},${food.name},${food.gramsOfSugar},${food.unit}`;
+        foodOption.textContent = `${food.icon} ${food.name}`;
+        foodMenuDropdown.appendChild(foodOption);
       });
+      foodSugarInput.value = parseInt(foodMenuDropdown.value.split(',')[2]);
+      
+      // Set sugar serving size label.
+      servingSizeLabel.htmlFor = 'sugar-serving-size';
+      servingSizeLabel.textContent = `Serving Size (${foodMenuDropdown.value.split(',')[3]})`;
+      servingSizeInput.value = 1;
     },
     request = new XMLHttpRequest();
   
@@ -106,21 +118,35 @@ function createFoodMenu() {
   // Set food sugar label.
   foodSugarLabel.htmlFor = 'food-sugar-amount';
   foodSugarLabel.textContent = 'Sugar (per serving)';
-  
-  // Set sugar serving size label.
-  sugarServingSizeLabel.htmlFor = 'sugar-serving-size';
-  sugarServingSizeLabel.textContent = 'Serving Size';
 
   foodMenuDropdown.id = foodMenuLabel.htmlFor;
   foodMenuDropdown.name = 'foods';
   foodMenuDropdown.style.width = '50%';
 
+  // Set food sugar input.
+  foodSugarInput.id = foodSugarLabel.htmlFor;
+  foodSugarInput.disabled = true;
+  foodSugarInput.style.width = servingSizeInput.style.width = '50%';
+  foodSugarInput.style.float = servingSizeInput.style.float = 'right';
+
+  foodSugarContainer.style.display = servingSizeContainer.style.display = 'inline-block';
+
+  foodSugarContainer.appendChild(foodSugarLabel);
+  foodSugarContainer.appendChild(foodSugarInput);
+  servingSizeContainer.appendChild(servingSizeLabel);
+  servingSizeContainer.appendChild(servingSizeInput);
+
+  foodMenuDropdown.onchange = foodMenuDropdown.onload = function() { 
+    foodSugarInput.value = parseInt(foodMenuDropdown.value.split(',')[2]); 
+    servingSizeLabel.textContent = `Serving Size (${foodMenuDropdown.value.split(',')[3]})`;
+  }
+
   foodMenuContainer.appendChild(foodMenuLabel);
   foodMenuContainer.appendChild(foodMenuDropdown);
   foodMenuContainer.appendChild(document.createElement('br'));
-  foodMenuContainer.appendChild(foodSugarLabel);
+  foodMenuContainer.appendChild(foodSugarContainer);
   foodMenuContainer.appendChild(document.createElement('br'));
-  foodMenuContainer.appendChild(sugarServingSizeLabel);
+  foodMenuContainer.appendChild(servingSizeContainer);
 
   return foodMenuContainer;
 }
