@@ -68,8 +68,6 @@ function createDateSelectionInputs() {
   return dateSelectionContainer;
 }
 
-// TODO: Use grid display and grid template areas to form
-// table for the food menu.
 function createFoodMenu() {
   var 
     foodMenuContainer = document.createElement('div'),
@@ -93,7 +91,7 @@ function createFoodMenu() {
         foodOption.textContent = `${food.icon} ${food.name}`;
         foodMenuDropdown.appendChild(foodOption);
       });
-      foodSugarInput.value = parseInt(foodMenuDropdown.value.split(',')[2]);
+      foodSugarInput.value = `${foodMenuDropdown.value.split(',')[2]}g`;
       
       // Set sugar serving size label.
       servingSizeLabel.htmlFor = 'sugar-serving-size';
@@ -153,8 +151,6 @@ function createFoodMenu() {
   entryContainer.style.display = 
   dropdownContainer.style.display = 'inline-block';
 
-  
-
   foodSugarContainer.appendChild(foodSugarLabel);
   foodSugarContainer.appendChild(foodSugarInput);
   servingSizeContainer.appendChild(servingSizeLabel);
@@ -165,13 +161,18 @@ function createFoodMenu() {
   dropdownContainer.appendChild(foodMenuDropdown);
 
   foodMenuDropdown.onchange = foodMenuDropdown.onload = function() { 
-    foodSugarInput.value = parseInt(foodMenuDropdown.value.split(',')[2]); 
+    foodSugarInput.value = `${foodMenuDropdown.value.split(',')[2]}g`; 
     servingSizeLabel.textContent = `Serving Size (${foodMenuDropdown.value.split(',')[3]})`;
     servingSizeInput.value = 1;
   }
 
   addFoodButton.textContent = 'Add Food';
-  addFoodButton.onclick = function () { entry.textContent += ` ${foodMenuDropdown.value.split(',')[0]}` }
+  addFoodButton.onclick = function () { 
+    entry.textContent += ` ${foodMenuDropdown.value.split(',')[0]}`;
+    document.getElementById('sugar-intake').value = `${
+      parseInt(document.getElementById('sugar-intake').value.split('g')[0]) + 
+      parseInt(document.getElementById('food-sugar-amount').value)}g`;
+  };
 
   foodMenuContainer.appendChild(dropdownContainer);
   foodMenuContainer.appendChild(document.createElement('br'));
@@ -182,6 +183,64 @@ function createFoodMenu() {
   foodMenuContainer.appendChild(entryContainer);
 
   return foodMenuContainer;
+}
+
+function createResultsSection() {
+  var
+    entryResultsContainer = document.createElement('div'),
+    dailyGoalContainer = document.createElement('div'),
+    dailyGoalLabel = document.createElement('label'),
+    dailyGoalInput = document.createElement('input'),
+    sugarIntakeContainer = document.createElement('div'),
+    sugarIntakeLabel = document.createElement('label'),
+    sugarIntakeInput = document.createElement('input'),
+    sugarBlank = document.createElement('label'),
+    sugarLabel = document.createElement('label');
+
+  dailyGoalContainer.style.display = 
+  sugarIntakeContainer.style.display = 'inline-block';
+
+  dailyGoalLabel.htmlFor = 'daily-goal';
+  sugarIntakeLabel.htmlFor = 'sugar-intake';
+  dailyGoalLabel.textContent = 'Daily Goal';
+  sugarIntakeLabel.textContent = 'Sugar Intake';
+  dailyGoalLabel.style.fontWeight = 
+  sugarIntakeLabel.style.fontWeight ='bold';
+  dailyGoalInput.id = dailyGoalLabel.htmlFor;
+  sugarIntakeInput.id = sugarIntakeLabel.htmlFor;
+  dailyGoalInput.disabled = sugarIntakeInput.disabled = true;
+  dailyGoalInput.style.float = sugarIntakeInput.style.float = 'right';
+  dailyGoalInput.value = `< 50g`;
+  sugarIntakeInput.value = `0g`;
+  sugarLabel.textContent = sugarBlank.textContent = 'of Sugar.'
+  sugarBlank.style.color = 'rgba(255, 255, 255, 0)';
+  dailyGoalInput.style.width = 
+  sugarIntakeInput.style.width = '40%';
+  sugarBlank.style.width =  '17.5%';
+  sugarLabel.style.width = '97.5%';
+  sugarBlank.style.float = sugarLabel.style.float = 'right';
+  sugarLabel.style.textAlign = 'right';
+  sugarBlank.style.marginLeft = sugarLabel.style.marginLeft = '2.5%';
+
+  entryResultsContainer.style.display = 'grid';
+  entryResultsContainer.style.width = '80%';
+  // Center.
+  entryResultsContainer.style.margin = '0 auto';
+  
+  dailyGoalContainer.appendChild(dailyGoalLabel);
+  dailyGoalContainer.appendChild(sugarBlank.cloneNode(true));
+  dailyGoalContainer.appendChild(dailyGoalInput);
+  entryResultsContainer.appendChild(dailyGoalContainer);
+
+  entryResultsContainer.appendChild(sugarLabel);
+
+  sugarIntakeContainer.appendChild(sugarIntakeLabel);
+  sugarIntakeContainer.appendChild(sugarBlank.cloneNode(true));
+  sugarIntakeContainer.appendChild(sugarIntakeInput);
+  entryResultsContainer.appendChild(sugarIntakeContainer);
+  
+
+  return entryResultsContainer;
 }
 
 function bootstrapWebApplication() {
@@ -219,7 +278,9 @@ function bootstrapWebApplication() {
   
   // Append horizontal rule.
   mainContainer.appendChild(document.createElement('hr'));
+
   // Append daily results container.
+  resultsContainer.appendChild(createResultsSection());
   mainContainer.appendChild(resultsContainer);
   // Append main button container.
   mainContainer.appendChild(mainButtonContainer);
