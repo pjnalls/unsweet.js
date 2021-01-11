@@ -82,6 +82,9 @@ function createFoodMenu() {
     servingSizeInput = document.createElement('input'),
     foodMenuDropdown = document.createElement('select'),
     dropdownContainer = document.createElement('div'),
+    addFoodButton = document.createElement('button'),
+    entry = document.createElement('div'),
+    entryContainer = document.createElement('div'),
     listener = function() {
       JSON.parse(this.response).forEach(food => {
         const foodOption = document.createElement('option');
@@ -130,18 +133,24 @@ function createFoodMenu() {
   foodSugarInput.id = foodSugarLabel.htmlFor;
   foodSugarInput.disabled = true;
 
+  addFoodButton.style.width = '25%';
+
   foodSugarInput.style.width = 
   servingSizeInput.style.width = 
+  entry.style.width =
   foodMenuDropdown.style.width = '50%';
   foodSugarInput.style.float = 
   servingSizeInput.style.float = 
+  addFoodButton.style.float =
   foodMenuDropdown.style.float = 'right';
+  // Set box-sizing for input and select elements for them to be the same width.
   foodSugarInput.style.boxSizing = 
   servingSizeInput.style.boxSizing = 
   foodMenuDropdown.style.boxSizing = 'border-box';
 
   foodSugarContainer.style.display = 
   servingSizeContainer.style.display = 
+  entryContainer.style.display = 
   dropdownContainer.style.display = 'inline-block';
 
   
@@ -150,6 +159,8 @@ function createFoodMenu() {
   foodSugarContainer.appendChild(foodSugarInput);
   servingSizeContainer.appendChild(servingSizeLabel);
   servingSizeContainer.appendChild(servingSizeInput);
+  entryContainer.appendChild(addFoodButton);
+  entryContainer.appendChild(entry);
   dropdownContainer.appendChild(foodMenuLabel);
   dropdownContainer.appendChild(foodMenuDropdown);
 
@@ -159,14 +170,16 @@ function createFoodMenu() {
     servingSizeInput.value = 1;
   }
 
-  // Set box-sizing for input and select elements for them to be the same width.
-  
+  addFoodButton.textContent = 'Add Food';
+  addFoodButton.onclick = function () { entry.textContent += ` ${foodMenuDropdown.value.split(',')[0]}` }
 
   foodMenuContainer.appendChild(dropdownContainer);
   foodMenuContainer.appendChild(document.createElement('br'));
   foodMenuContainer.appendChild(foodSugarContainer);
   foodMenuContainer.appendChild(document.createElement('br'));
   foodMenuContainer.appendChild(servingSizeContainer);
+  foodMenuContainer.appendChild(document.createElement('br'));
+  foodMenuContainer.appendChild(entryContainer);
 
   return foodMenuContainer;
 }
