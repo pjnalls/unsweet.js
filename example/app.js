@@ -7,7 +7,7 @@ function createContainer() {
   // Center.
   container.style.margin = '0 auto';
   // Create white-spacing on the right and left sides of the container.
-  container.style.width = '80%';
+  container.style.width = '66.7%';
   container.style.backgroundColor = '#fff';
   container.style.fontFamily = 'Arial, Helvetica, san-serif';
 
@@ -140,7 +140,9 @@ function createFoodMenu() {
   foodSugarInput.style.float = 
   servingSizeInput.style.float = 
   addFoodButton.style.float =
-  foodMenuDropdown.style.float = 'right';
+  foodMenuDropdown.style.float = 
+  foodSugarInput.style.textAlign = 
+  servingSizeInput.style.textAlign = 'right';
   // Set box-sizing for input and select elements for them to be the same width.
   foodSugarInput.style.boxSizing = 
   servingSizeInput.style.boxSizing = 
@@ -209,7 +211,10 @@ function createResultsSection() {
   dailyGoalInput.id = dailyGoalLabel.htmlFor;
   sugarIntakeInput.id = sugarIntakeLabel.htmlFor;
   dailyGoalInput.disabled = sugarIntakeInput.disabled = true;
-  dailyGoalInput.style.float = sugarIntakeInput.style.float = 'right';
+  dailyGoalInput.style.float = 
+  sugarIntakeInput.style.float = 
+  dailyGoalInput.style.textAlign = 
+  sugarIntakeInput.style.textAlign = 'right';
   dailyGoalInput.value = `< 50g`;
   sugarIntakeInput.value = `0g`;
   sugarLabel.textContent = sugarBlank.textContent = 'of Sugar.'
