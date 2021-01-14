@@ -205,7 +205,7 @@ function createResultsSection() {
   dailyGoalLabel.htmlFor = 'daily-goal';
   sugarIntakeLabel.htmlFor = 'sugar-intake';
   dailyGoalLabel.textContent = 'Daily Goal';
-  sugarIntakeLabel.textContent = 'Sugar Intake';
+  sugarIntakeLabel.textContent = 'Today\'s Consumption';
   dailyGoalLabel.style.fontWeight = 
   sugarIntakeLabel.style.fontWeight ='bold';
   dailyGoalInput.id = dailyGoalLabel.htmlFor;
