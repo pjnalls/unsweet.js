@@ -170,10 +170,19 @@ function createFoodMenu() {
 
   addFoodButton.textContent = 'Add Food';
   addFoodButton.onclick = function () { 
+    var
+      sugarIntake = document.getElementById('sugar-intake'),
+      dailyGoal = document.getElementById('daily-goal'),
+      foodSugarAmount = document.getElementById('food-sugar-amount');
+
     entry.textContent += ` ${foodMenuDropdown.value.split(',')[0]}`;
+
     document.getElementById('sugar-intake').value = `${
-      parseInt(document.getElementById('sugar-intake').value.split('g')[0]) + 
-      parseInt(document.getElementById('food-sugar-amount').value)}g`;
+      parseInt(sugarIntake.value.split('g')[0]) + parseInt(foodSugarAmount.value)}g`;
+    
+    // TODO: Resolve issue with color of sugar intake input text not changing color. 
+    parseInt(dailyGoal.value.split('g')[0]) < parseInt(sugarIntake.value.split('g')[0]) ?
+      sugarIntake.style.color = '#aa0000' : sugarIntake.style.color = '#000000';
   };
 
   foodMenuContainer.appendChild(dropdownContainer);
@@ -287,6 +296,9 @@ function bootstrapWebApplication() {
   // Append daily results container.
   resultsContainer.appendChild(createResultsSection());
   mainContainer.appendChild(resultsContainer);
+
+  mainContainer.appendChild(document.createElement('br'));
+
   // Append main button container.
   mainContainer.appendChild(mainButtonContainer);
   // Append line break.
