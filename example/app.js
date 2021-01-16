@@ -176,12 +176,9 @@ function createFoodMenu() {
       foodSugarAmount = document.getElementById('food-sugar-amount');
 
     entry.textContent += ` ${foodMenuDropdown.value.split(',')[0]}`;
-
-    document.getElementById('sugar-intake').value = `${
-      parseInt(sugarIntake.value.split('g')[0]) + parseInt(foodSugarAmount.value)}g`;
+    sugarIntake.value = `${parseInt(sugarIntake.value.split('g')[0]) + parseInt(foodSugarAmount.value)}g`;
     
-    // TODO: Resolve issue with color of sugar intake input text not changing color. 
-    parseInt(dailyGoal.value.split('g')[0]) < parseInt(sugarIntake.value.split('g')[0]) ?
+    parseInt(dailyGoal.value.split('g')[0].split('< ')[1]) < parseInt(sugarIntake.value.split('g')[0]) ?
       sugarIntake.style.color = '#aa0000' : sugarIntake.style.color = '#000000';
   };
 
