@@ -68,6 +68,7 @@ function createDateSelectionInputs() {
   return dateSelectionContainer;
 }
 
+// TODO: Create additional buttons to delete and edit foods added to entry.
 function createFoodMenu() {
   var 
     foodMenuContainer = document.createElement('div'),
@@ -254,6 +255,28 @@ function createResultsSection() {
   return entryResultsContainer;
 }
 
+function createButtonContainer() {
+  var
+    buttonContainer = document.createElement('div'),
+    saveButton = document.createElement('button')
+
+  buttonContainer.style.display = 'inline-block';
+  buttonContainer.style.width = '100%';
+
+  saveButton.textContent = 'Save Entry';
+  saveButton.style.float = 'right';
+  saveButton.style.alignContent = 'right'
+  // Set button style.
+  saveButton.style.color = '#ffffff';
+  saveButton.style.borderRadius = '5px';
+  saveButton.style.padding = '5px 10px 5px 10px';
+  saveButton.style.backgroundColor = '#0b5394';
+
+  buttonContainer.appendChild(saveButton);
+
+  return buttonContainer;
+}
+
 function bootstrapWebApplication() {
 
   //
@@ -294,10 +317,13 @@ function bootstrapWebApplication() {
   resultsContainer.appendChild(createResultsSection());
   mainContainer.appendChild(resultsContainer);
 
+  // Append line break.
   mainContainer.appendChild(document.createElement('br'));
 
   // Append main button container.
+  mainButtonContainer.appendChild(createButtonContainer());
   mainContainer.appendChild(mainButtonContainer);
+
   // Append line break.
   mainContainer.appendChild(document.createElement('br'));
 }
