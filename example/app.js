@@ -176,11 +176,17 @@ function createFoodMenu() {
       dailyGoal = document.getElementById('daily-goal'),
       foodSugarAmount = document.getElementById('food-sugar-amount');
 
-    entry.textContent += ` ${foodMenuDropdown.value.split(',')[0]}`;
+    entry.textContent += `${entry.textContent.split('').length > 1 ? ', ' : ''}${foodMenuDropdown.value.split(',')[0]}`;
     sugarIntake.value = `${parseInt(sugarIntake.value.split('g')[0]) + parseInt(foodSugarAmount.value)}g`;
     
-    parseInt(dailyGoal.value.split('g')[0].split('< ')[1]) < parseInt(sugarIntake.value.split('g')[0]) ?
-      sugarIntake.style.color = '#aa0000' : sugarIntake.style.color = '#000000';
+    if (parseInt(dailyGoal.value.split('g')[0].split('< ')[1]) <
+      parseInt(sugarIntake.value.split('g')[0])) {
+      sugarIntake.style.color = '#aa0000';
+      sugarIntake.style.fontWeight = 'bold';
+    } else {
+      sugarIntake.style.color = '#000000';
+      sugarIntake.style.fontWeight = 'normal';
+    }
   };
 
   foodMenuContainer.appendChild(dropdownContainer);
@@ -228,6 +234,7 @@ function createResultsSection() {
   sugarBlank.style.color = 'rgba(255, 255, 255, 0)';
   dailyGoalInput.style.width = 
   sugarIntakeInput.style.width = '40%';
+  dailyGoalInput.style.fontWeight = 'bold';
   sugarBlank.style.width =  '17.5%';
   sugarLabel.style.width = '97.5%';
   sugarBlank.style.float = sugarLabel.style.float = 'right';
