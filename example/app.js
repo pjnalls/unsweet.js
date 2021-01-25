@@ -35,7 +35,7 @@ function createDateSelectionInputs() {
     previousDateButton = document.createElement('button'),
     nextDateButton = document.createElement('button'),
     currentDateSelection = document.createElement('select'),
-    dateData = ['1/1/2021', '1/2/2021', '1/3/2021', '1/4/2021', '1/5/2021'];
+    dateData = ['1/16/2021', '1/17/2021', '1/18/2021', '1/19/2021', '1/20/2021'];
 
   previousDateButton.value = previousDateButton.textContent = `◀   ${dateData[2]}`;
   previousDateButton.id = 'previous-date-btn';
@@ -153,6 +153,9 @@ function createFoodMenu() {
   servingSizeContainer.style.display = 
   entryContainer.style.display = 
   dropdownContainer.style.display = 'inline-block';
+
+  // Set height of entry container for spacial consistency
+  entryContainer.style.height = '180px'; 
 
   foodSugarContainer.appendChild(foodSugarLabel);
   foodSugarContainer.appendChild(foodSugarInput);
